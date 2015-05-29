@@ -17,19 +17,34 @@ var emailType = (props, propName, componentName) => {
 	);
 };
 
+var sizeType = (props, propName, componentName) => {
+	warning(
+		!isNaN(parseInt(props[propName])),
+		`Invalid '${propName}' cannot convert "${props[propName]}" to number. Check the render method of '${componentName}'.`
+	);
+};
+
 var Gravatar = React.createClass({
 	propTypes: {
 		user: React.PropTypes.shape({
 			email: emailType,
 			name: React.PropTypes.string.isRequired,
 			id: React.PropTypes.number.isRequired
-		}).isRequired
+		}).isRequired,
+		size: sizeType
 	},
+
+	getDefaultProps () {
+		return {
+			size: 16
+		};
+	},
+
 	render() {
 		var { user, size } = this.props;
 		var hash = md5(user.email);
 		var url = `${GRAVATAR_URL}/${hash}?s=${size*2}`;
-		return <img src={url} width={size} />
+		return <img src={url} width={size} />;
 	}
 });
 
