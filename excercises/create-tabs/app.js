@@ -13,9 +13,9 @@ var App = React.createClass({
 			activeTabIndex: 0
 		}
 	},
-	handleTabClick (index) {
+	handleTabClick (activeTabIndex) {
 		this.setState({
-			activeTabIndex: index
+			activeTabIndex
 		});
 	},
 	renderTabs () {
