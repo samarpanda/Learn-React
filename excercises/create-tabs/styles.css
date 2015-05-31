@@ -1,0 +1,21 @@
+.tab{
+	display: inline-block;
+	padding: 10px;
+	margin: 10px;
+	border-bottom: solid 4px;
+	border-bottom-color: #ccc;
+	cursor: pointer;
+}
+
+.activeTab{
+	display: inline-block;
+	padding: 10px;
+	margin: 10px;
+	border-bottom: solid 4px;
+	border-bottom-color: #000;
+	cursor: pointer;
+}
+
+.tabPanels{
+	padding: 10px;
+}
