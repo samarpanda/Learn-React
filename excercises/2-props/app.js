@@ -64,4 +64,6 @@ var App = React.createClass({
 	}
 });
 
-React.render(<App users={USERS} />, document.body);
+React.render(<App users={USERS} />, document.body, () => {
+	require('./tests').run();
+});
