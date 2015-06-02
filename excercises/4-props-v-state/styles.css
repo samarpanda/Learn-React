@@ -1,0 +1,36 @@
+.ContentToggle__Summary {
+  cursor: pointer;
+  border-bottom: solid 1px transparent;
+}
+
+.ContentToggle__Summary:before {
+  display: inline-block;
+  width: 1em;
+  content: '▸';
+}
+
+.ContentToggle__Summary--open:before {
+  content: '▾';
+}
+
+.tab{
+	display: inline-block;
+	padding: 10px;
+	margin: 10px;
+	border-bottom: solid 4px;
+	border-bottom-color: #ccc;
+	cursor: pointer;
+}
+
+.activeTab{
+	display: inline-block;
+	padding: 10px;
+	margin: 10px;
+	border-bottom: solid 4px;
+	border-bottom-color: #000;
+	cursor: pointer;
+}
+
+.tabPanels{
+	padding: 10px;
+}
