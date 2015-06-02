@@ -4,7 +4,9 @@ var {h1, div, li, ul} = React.DOM;
 
 var numbers = ['one', 'two', 'three'];
 
-var items = numbers.map(item => li({}, item));
+var items = numbers.map( (item, index) => {
+	return li({key:index}, item);
+});
 
 var App = React.createClass({
 	render (){
@@ -19,4 +21,6 @@ var App = React.createClass({
 	}
 });
 
-React.render(<App/>, document.body);
+React.render(<App/>, document.body, () => {
+	require('./tests').run();
+});
