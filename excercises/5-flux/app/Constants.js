@@ -1,7 +1,7 @@
 var keyMirror = require('react/lib/keyMirror');
 
 module.exports = {
-	API: '',
+	API: 'http://addressbook-api.herokuapp.com',
 
 	ActionTypes: keyMirror({
 		CONTACTS_LOADED: null,

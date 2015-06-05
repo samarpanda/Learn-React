@@ -7,11 +7,30 @@ var App = React.createClass({
 		return ContactsStore.getState();
 	},
 	componentDidMount () {
-		ContactsStore.addEventListener(this.handleStoreChange);
+		ContactsStore.addChangeListener(this.handleStoreChange);
 		ViewActionCreators.loadContacts();
 	},
 	componentWillUnmount () {
 		ContactsStore.removeChangeListener(this.handleStoreChange);
 	},
-	handleStoreChange () {}
+	handleStoreChange () {
+		this.setState(ContactsStore.getState());
+	},
+	renderContacts () {
+		return this.state.contacts.map((contact) => {
+			return <li key={contact.id}>{contact.first} {contact.last}</li>;
+		});
+	},
+	render () {
+		if( !this.state.loaded )
+			return <div>Loading...</div>;
+
+		return (
+			<div>
+				<ul>{this.renderContacts()}</ul>
+			</div>
+		);
+	}
 });
+
+module.exports = App;

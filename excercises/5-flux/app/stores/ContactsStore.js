@@ -18,10 +18,10 @@ var setState = (newState) => {
 
 var ContactsStore = {
 	addChangeListener (fn) {
-		events.addChangeListener(CHANGE_EVENT, fn);
+		events.addListener(CHANGE_EVENT, fn);
 	},
 	removeChangeListener (fn) {
-		events.removeChangeListener(CHANGE_EVENT, fn);
+		events.removeListener(CHANGE_EVENT, fn);
 	},
 	getState () {
 		return state;

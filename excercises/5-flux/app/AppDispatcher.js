@@ -8,6 +8,7 @@ var AppDispatcher = assign(new Dispatcher(), {
 			source: PayloadSources.SERVER_ACTION,
 			action: action
 		};
+		this.dispatch(payload);
 	},
 
 	handleViewAction (action) {
@@ -15,6 +16,7 @@ var AppDispatcher = assign(new Dispatcher(), {
 			source: PayloadSources.VIEW_ACTION,
 			action: action
 		};
+		this.dispatch(payload);
 	}
 });
 
