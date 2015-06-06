@@ -7,6 +7,9 @@ var ServerActionCreators = {
 			type: ActionTypes.CONTACTS_LOADED,
 			contacts: contacts
 		});
+	},
+	deletedContact (contact) {
+		
 	}
 };
 

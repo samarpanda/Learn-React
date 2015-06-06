@@ -1,3 +1,5 @@
+localStorage.token = localStorage.token || (Date.now()*Math.random());
+
 exports.getJSON = (url, cb) => {
   var req = new XMLHttpRequest();
   req.onload = function () {
@@ -27,3 +29,7 @@ exports.deleteJSON = (url, cb) => {
   req.open('DELETE', url);
   req.send();
 };
+
+function setToken(req){
+  req.setRequestHeader('authorization', localStorage.token);
+}

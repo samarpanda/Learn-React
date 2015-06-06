@@ -8,6 +8,9 @@ var ViewActionCreators = {
 			type: ActionTypes.LOAD_CONTACTS
 		});
 		ApiUtil.loadContacts();
+	},
+	deleteContact(contact) {
+		
 	}
 };
 

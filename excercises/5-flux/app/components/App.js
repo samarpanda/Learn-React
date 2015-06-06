@@ -16,9 +16,16 @@ var App = React.createClass({
 	handleStoreChange () {
 		this.setState(ContactsStore.getState());
 	},
+	deleteContact(contact) {
+		console.log(contact);
+	},
 	renderContacts () {
 		return this.state.contacts.map((contact) => {
-			return <li key={contact.id}>{contact.first} {contact.last}</li>;
+			return <li key={contact.id}>
+				<img src={contact.avatar} />
+				{contact.first} {contact.last}
+				<button onClick={this.deleteContact.bind(this, contact)}>delete</button>
+			</li>;
 		});
 	},
 	render () {
