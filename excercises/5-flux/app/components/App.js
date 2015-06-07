@@ -17,12 +17,13 @@ var App = React.createClass({
 		this.setState(ContactsStore.getState());
 	},
 	deleteContact(contact) {
-		console.log(contact);
+		// console.log(contact);
+		ViewActionCreators.deleteContact(contact);
 	},
 	renderContacts () {
 		return this.state.contacts.map((contact) => {
 			return <li key={contact.id}>
-				<img src={contact.avatar} />
+				<img /*src={contact.avatar}*/ width="128" height="128"/>
 				{contact.first} {contact.last}
 				<button onClick={this.deleteContact.bind(this, contact)}>delete</button>
 			</li>;
@@ -31,7 +32,6 @@ var App = React.createClass({
 	render () {
 		if( !this.state.loaded )
 			return <div>Loading...</div>;
-
 		return (
 			<div>
 				<ul>{this.renderContacts()}</ul>

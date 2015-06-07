@@ -10,6 +10,7 @@ exports.getJSON = (url, cb) => {
   	}
   };
   req.open('GET', url);
+  setToken(req);
   req.send();
 };
 
@@ -19,7 +20,8 @@ exports.postJSON = (url, obj, cb) => {
   	cb(JSON.parse(req.response));
   };
   req.open('POST', url);
-  req.setResponseHeader('Content-Type', 'application/json;charset=UTF-8');
+  req.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+  setToken(req);
   req.send(JSON.stringify(obj));
 };
 
@@ -27,6 +29,7 @@ exports.deleteJSON = (url, cb) => {
   var req = new XMLHttpRequest();
   req.onload = cb;
   req.open('DELETE', url);
+  setToken(req);
   req.send();
 };
 
